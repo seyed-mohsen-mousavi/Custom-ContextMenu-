@@ -1,16 +1,15 @@
-﻿let body = document.body;
-let contextMenu = document.getElementById("contextMenu");
-body.addEventListener("contextmenu", (e) => {
+﻿const body = document.body;
+const contextMenu = document.getElementById("contextMenu");
+// All ---Fun 
+function contextMenuHandler(e) {
   e.preventDefault();
-  contextMenu.style.visibility = "visible";
-  contextMenu.style.opacity = "1";
+  contextMenu.style.display = "block";
   let s = (contextMenu.style.transform =
     "translate(" + e.pageX + "px," + e.pageY + "px)");
-  console.log(e.pageX, e.pageY);
-  console.log(s);
-});
-body.addEventListener("click", (e) => {
-    e.preventDefault();
-    contextMenu.style.visibility = "hidden";
-    contextMenu.style.opacity = "0";
-  });
+}
+function clickHanlder() {
+  contextMenu.style.display = "none";
+}
+// All --- Event
+body.addEventListener("click", clickHanlder);
+body.addEventListener("contextmenu", contextMenuHandler);
